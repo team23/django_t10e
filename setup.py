@@ -38,7 +38,7 @@ setup(
         read('README.rst'),
         read('CHANGES.rst'))),
     install_requires=[
-
+        'django-cloneable',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
