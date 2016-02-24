@@ -6,4 +6,6 @@ register = template.Library()
 
 @register.filter
 def safe_translate(translatable, language=None):
-    return translatable.safe_translate(language)
+    if hasattr(translatable, 'safe_translate'):
+        return translatable.safe_translate(language)
+    return translatable
