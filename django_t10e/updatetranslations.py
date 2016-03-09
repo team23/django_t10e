@@ -97,11 +97,9 @@ class UpdateTranslationsMixin(TranslationStatusMixin, models.Model):
                         # Skip the field that is the ForeignKey to the to be
                         # translated model.
                         field.name != relation.field.name and
-                        # Skip reverse relations.
-                        not field.is_relation and
                         # Skip primary key fields, those will always differ by
                         # definition.
-                        not field.primary_key and
+                        not getattr(rel_field, 'primary_key', False) and
                         # Skip many to many fields.
                         not isinstance(field, models.ManyToManyField))]
                 local = list(local.values(*compare_fields).order_by(*compare_fields))
