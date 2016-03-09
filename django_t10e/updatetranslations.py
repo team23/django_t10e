@@ -84,26 +84,26 @@ class UpdateTranslationsMixin(TranslationStatusMixin, models.Model):
                 # we take into account? We just do all fields except the
                 # primary key and m2ms.
                 relation = field
-                fields = [
-                    field
-                    for field in relation.field.model._meta.get_fields()
+                rel_fields = [
+                    rel_field
+                    for rel_field in relation.field.model._meta.get_fields()
                     if (
-                        not field.is_relation or
-                        field.one_to_one or
-                        (field.many_to_one and field.related_model))]
-                compare_fields = [
-                    field.name for field in fields
+                        not rel_field.is_relation or
+                        rel_field.one_to_one or
+                        (rel_field.many_to_one and rel_field.related_model))]
+                compare_field_names = [
+                    rel_field.name for rel_field in rel_fields
                     if (
                         # Skip the field that is the ForeignKey to the to be
                         # translated model.
-                        field.name != relation.field.name and
+                        rel_field.name != relation.field.name and
                         # Skip primary key fields, those will always differ by
                         # definition.
                         not getattr(rel_field, 'primary_key', False) and
                         # Skip many to many fields.
-                        not isinstance(field, models.ManyToManyField))]
-                local = list(local.values(*compare_fields).order_by(*compare_fields))
-                new_value = list(new_value.values(*compare_fields).order_by(*compare_fields))
+                        not isinstance(rel_field, models.ManyToManyField))]
+                local = list(local.values(*compare_field_names).order_by(*compare_field_names))
+                new_value = list(new_value.values(*compare_field_names).order_by(*compare_field_names))
         return local != new_value
 
     def update_from_translation(self, translation):
