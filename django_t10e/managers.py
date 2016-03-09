@@ -27,4 +27,4 @@ class TranslatableQuerySet(TranslatableFilterMixin, QuerySet):
     pass
 
 
-TranslatableManager = Manager.from_queryset(TranslatableFilterMixin)
+TranslatableManager = Manager.from_queryset(TranslatableQuerySet)
