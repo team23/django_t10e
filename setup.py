@@ -28,7 +28,7 @@ setup(
     packages=find_packages(
         exclude=['tests', 'tests.*']),
     include_package_data=True,
-    url='https://git.team23.de/team23/django_t10e',
+    url='https://github.com/team23/django_t10e',
     license='BSD licence, see LICENSE file',
     description=(
         "Translatable models using one separate model instance per "
