@@ -38,6 +38,7 @@ setup(
         read('README.rst'),
         read('CHANGES.rst'))),
     install_requires=[
+        'jsonfield>=1.0.0',
         'django-cloneable',
     ],
     classifiers=[
