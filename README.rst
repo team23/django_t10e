@@ -46,3 +46,14 @@ have a ``pub_date`` field. So all translations in one translation set have the
 same ``pub_date`` value assigned. When one translation is changed you need to
 call the ``update_translations()`` method. That will update all other instances
 in the translation set accordingly.
+
+Development
+-----------
+
+Install the dependencies (including the test dependencies) with::
+
+    pip install -r requirements.txt
+
+Then you can run all tests with::
+
+    tox
