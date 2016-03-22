@@ -1,6 +1,14 @@
 django-t10e
 ===========
 
+|pypi-badge| |build-status|
+
+.. |build-status| image:: https://travis-ci.org/team23/django_t10e.svg
+    :target: https://travis-ci.org/team23/django_t10e
+
+.. |pypi-badge| image:: https://img.shields.io/pypi/v/django-t10e.svg
+    :target: https://pypi.python.org/pypi/django-t10e
+
 **django-t10e** is an approach that allows you to translate the contents of
 your models. **django-t10e** stands for *django-translatable*.
 
